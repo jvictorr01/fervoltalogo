@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente Surpresa</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        #instrucao {
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+            font-size: 24px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        #presente {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        #presente:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+
+        #gatinho {
+            display: none;
+            max-width: 500px;
+            margin: 20px 0;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        #botao {
+            display: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        #botao:hover {
+            background-color: #ff1493;
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+        }
+
+        #texto {
+            display: none;
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="instrucao">Clique no presente abaixo</h2>
+    <img id="presente" src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Presente" onclick="abrirPresente()">
+    <h1 id="texto">#voltalogofer</h1>
+    <img id="gatinho" src="https://media.giphy.com/media/JER2en0ZRiGUE/giphy.gif" alt="Gatinho triste">
+    <button id="botao" onclick="tocarMusica()">Clique aqui</button>
+    <audio id="musica" src="musica.MP3"></audio>
+
+    <script>
+        function abrirPresente() {
+            document.getElementById('presente').style.display = 'none';
+            document.getElementById('instrucao').style.display = 'none';
+            document.getElementById('texto').style.display = 'block';
+            document.getElementById('gatinho').style.display = 'block';
+            document.getElementById('botao').style.display = 'block';
+        }
+
+        function tocarMusica() {
+            document.getElementById('musica').play();
+        }
+    </script>
+</body>
+</html>
